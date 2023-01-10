@@ -146,6 +146,7 @@ public class TrackCoach implements Coach, DisposableBean {
 }
 ```
 >如果bean的scope設為prototype時，當容器關閉時，destroy方法不會被調用。對於prototype作用域的bean，有一點非常重要，那就是Spring不能對一個prototype bean的整個生命週期負責：容器在初始化、配置、裝飾或者是裝配完一個prototype實例後，將它交給客戶端，隨後就對該prototype實例不聞不問了。不管何種作用域，容器都會調用所有對象的初始化生命週期回調方法。但對prototype而言，任何配置好的析構生命週期回調方法都將不會被調用。清除prototype作用域的對象並釋放任何prototype bean所持有的昂貴資源，都是客戶端代碼的職責
+>引用https://blog.csdn.net/fuzhongmin05/article/details/73389779
 ```
 <!-- define the dependency -->
 <bean id="myFortuneService"
@@ -161,6 +162,7 @@ public class TrackCoach implements Coach, DisposableBean {
 </bean>
 ```
 **自定義bean處理在MyCustomBeanProcessor類中處理**
+引用https://www.cnblogs.com/myseries/p/13453146.html
 ```
 public class MyCustomBeanProcessor implements BeanPostProcessor, BeanFactoryAware, DisposableBean {
 
